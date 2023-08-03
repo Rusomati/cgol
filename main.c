@@ -1,12 +1,17 @@
 #include "raylib.h"
-void DrawTextC(char *text, int x, int y, int size, Color color)//draws centered text
+
+int screenWidth = 800;
+int screenHeight = 450;
+
+void DrawTextC(char *text, float x, float y, int size, Color color)//draws centered text
 {
-	DrawText(text, x - (MeasureText(text, size) / 2), y,size, color);
+	int xx = (int)(x*screenWidth);
+	int yy = (int)(y*screenHeight);
+	DrawText(text, xx - (MeasureText(text, size) / 2), yy,size, color);
 }
+
 int main(void)
 {
-    const int screenWidth = 800;
-    const int screenHeight = 450;
 
     InitWindow(screenWidth, screenHeight, "cgol");
 
@@ -21,7 +26,7 @@ int main(void)
 
             ClearBackground(RAYWHITE);
 
-            DrawTextC("(paused)", screenWidth/2, screenHeight * 9 / 10, screenWidth/20, RED);
+            DrawTextC("(paused)", 0.5, 0.9, screenWidth/20, RED);
 
         EndDrawing();
     }
