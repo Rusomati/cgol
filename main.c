@@ -7,31 +7,31 @@ void DrawTextC(char *text, float x, float y, int size, Color color)//draws cente
 {
 	int xx = (int)(x*screenWidth);
 	int yy = (int)(y*screenHeight);
-	DrawText(text, xx - (MeasureText(text, size) / 2), yy,size, color);
+	DrawText(text, xx - (MeasureText(text, size) / 2), yy, size, color);
 }
 
 int main(void)
 {
 
-    InitWindow(screenWidth, screenHeight, "cgol");
+	InitWindow(screenWidth, screenHeight, "cgol");
 
-    SetTargetFPS(60);               // must be set to one at simulation or smth
-    while (!WindowShouldClose())    // Detect window close button or ESC key
-    {
+	SetTargetFPS(60);               // must be set to one at simulation or smth
+	while (!WindowShouldClose())    // Detect window close button or ESC key
+	{
 
-        if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT));
-        if (IsMouseButtonPressed(MOUSE_BUTTON_RIGHT));
+		if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT));
+		if (IsMouseButtonPressed(MOUSE_BUTTON_RIGHT));
 
-        BeginDrawing();
+		BeginDrawing();
 
-            ClearBackground(RAYWHITE);
+		ClearBackground(GRAY);
 
-            DrawTextC("(paused)", 0.5, 0.9, screenWidth/20, RED);
+		DrawTextC("(paused)", 0.5, 0.9, screenWidth/20, RED);
 
-        EndDrawing();
-    }
+		EndDrawing();
+	}
 
-    CloseWindow();
+	CloseWindow();
 
-    return 0;
+	return 0;
 }
