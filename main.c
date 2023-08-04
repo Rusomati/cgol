@@ -21,13 +21,14 @@ int main(void)
 	InitWindow(screenWidth, screenHeight, "cgol");
 
 	SetTargetFPS(60);               // must be set to one at simulation or smth
-	
-	if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT));
-	if (IsMouseButtonPressed(MOUSE_BUTTON_RIGHT));
 
+	
 	while (!WindowShouldClose())    // Detect window close button or ESC key
 	{
-
+		if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT))
+		grid[((GetMouseY()/cellsize) * (screenWidth/cellsize)) + (GetMouseX()/cellsize)]=1;
+		if (IsMouseButtonPressed(MOUSE_BUTTON_RIGHT))
+		grid[((GetMouseY()/cellsize) * (screenWidth/cellsize)) + (GetMouseX()/cellsize)]=0;
 
 		BeginDrawing();
 
@@ -38,7 +39,7 @@ int main(void)
 				x = cellsize * (i%(screenWidth/cellsize)) + borderWidth;
 				y = cellsize * (i/(screenWidth/cellsize)) + borderWidth;
 				if (!(grid[i])) DrawRectangle(x,y,cellsize-(2*borderWidth),cellsize-(2*borderWidth),BLACK);
-				else;
+				else DrawRectangle(x,y,cellsize-(2*borderWidth),cellsize-(2*borderWidth),WHITE);
 		}
 
 		DrawTextC("(paused)", 0.5, 0.9, screenWidth/20, RED);
